@@ -1,6 +1,8 @@
+const API = process.env.NODE_ENV === 'production' ? 'https://winston-movie-list.herokuapp.com/' : 'http://localhost:5000/';
+
 export function fetchData(data) {
   const title = data.trim().split(' ').join('%20')
-  const url = "http://localhost:5000/movies/list/"+title
+  const url = API+"movies/list/"+title
   console.log(url);
   return fetch(url);
 }
@@ -22,9 +24,9 @@ export async function postData(url = '', data = {}) {
 }
 
 export function fetchNewUser(){
-  return fetch("http://localhost:5000/movies/userID/");
+  return fetch(API+"movies/userID/");
 }
 
 export function fetchRated(userID){
-  return fetch("http://localhost:5000/movies/user/"+userID);
+  return fetch(API+"movies/user/"+userID);
 }

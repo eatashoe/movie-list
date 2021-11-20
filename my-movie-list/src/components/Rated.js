@@ -69,6 +69,7 @@ const Rated = () => {
     const userID = useSelector(selectUserID);
     const rated = useSelector(selectRated);
     const [toggle, setToggle] = React.useState(true);
+    const API = process.env.NODE_ENV === 'production' ? 'https://winston-movie-list.herokuapp.com/' : 'http://localhost:5000/';
 
     React.useEffect(() => {
         dispatch(updateAsyncRated(userID));
@@ -76,7 +77,7 @@ const Rated = () => {
 
     function handleVote(type, movie){
         const d = JSON.stringify({type: type, user: userID, movie: movie});
-        postData('http://localhost:5000/movies/post', d).then((response) => {
+        postData(API+'movies/post', d).then((response) => {
             console.log(response.status);
             dispatch(updateAsyncRated(userID));
         });

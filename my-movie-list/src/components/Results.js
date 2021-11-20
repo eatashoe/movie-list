@@ -39,10 +39,11 @@ const Results = () => {
     const searchValue = useSelector(selectSearchValue);
     const results = useSelector(selectResult);
     const resultRatings = useSelector(selectResultRatings);
+    const API = process.env.NODE_ENV === 'production' ? 'https://winston-movie-list.herokuapp.com/' : 'http://localhost:5000/';
 
     function handleVote(type, movie){
         const d = JSON.stringify({type: type, user: userID, movie: movie});
-        postData('http://localhost:5000/movies/post', d).then((response) => {
+        postData(API+'movies/post', d).then((response) => {
             console.log(response.status);
             dispatch(updateAsyncResult(searchValue));
         });

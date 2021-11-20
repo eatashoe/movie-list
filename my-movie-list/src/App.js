@@ -65,6 +65,7 @@ function App() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
+    console.log('yo its me big dog', process.env.NODE_ENV)
     if (localStorage.getItem('userID') !== null) {
       dispatch(setUserID(Number(localStorage.getItem('userID'))));
     } else {

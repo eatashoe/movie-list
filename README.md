@@ -6,7 +6,12 @@ You will be able to query for movies then upvote or downvote them. You can find 
 
 Movie information Source: OmdbAPI.
 
-To run
+# Demo
+
+https://winston-movie-list.herokuapp.com/
+
+
+# To run
 
 ```sh
 git clone https://github.com/eatashoe/movie-list

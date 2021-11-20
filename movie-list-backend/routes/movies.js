@@ -54,6 +54,19 @@ router.get("/userID", async (req, res) => {
     }
 });
 
+router.get("/allUsers", async (req, res) => {
+    try {
+      res.status(200).json({
+        data: users
+      });
+    } catch (err) {
+      res.status(400).json({
+        message: "Some error occured",
+        err
+      });
+    }
+});   
+
 router.get("/:id", async (req, res) => {
     let { id } = req.params;
     id = String(id);

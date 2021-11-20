@@ -2,7 +2,9 @@
 
 This is a full stack movie rating project built using Node.js, Express backend and a React, Redux frontend.
 
-Movie information source from OmdbAPI.
+You will be able to query for movies then upvote or downvote them. You can find all your rated movies in the star icon.
+
+Movie information Source: OmdbAPI.
 
 To run
 

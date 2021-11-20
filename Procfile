@@ -1,1 +1,1 @@
-web: node movie-list-backend/index.js
+web: npm run dev

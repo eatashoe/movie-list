@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Search from './components/Search';
 import Results from './components/Results';
-import {useDispatch, useSelector} from 'react-redux'; 
-import {selectUserID, setUserID, updateAsyncNewUser} from './components/searchSlice';
+import {useDispatch} from 'react-redux'; 
+import { setUserID, updateAsyncNewUser} from './components/searchSlice';
 import Rated from './components/Rated';
 
 const Header = styled.div`
   width: auto;
   max-width: calc(100vw - 60px);
-  // height: 100px;
+  height: 100px;
   font-size: 24px;
   padding: 30px 30px 20px 30px;
   display: flex;
@@ -43,14 +43,14 @@ const Header = styled.div`
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-    // height: 70px;
+    height: 70px;
     .mobile{
       display:none;
     }
     .desktop{
       display: block;
-      margin-left: calc(100vw - 50vw - 282px);
-      margin-right: 10px;
+      margin-left: calc(100vw - 50vw - 293px);
+      margin-right: 21px;
     }
     .title{
       width: 185px;
@@ -62,10 +62,10 @@ const Header = styled.div`
 `
 function App() {
   const searchRef = React.useRef(null);
+  const headerRef = React.useRef(null);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    console.log('yo its me big dog', process.env.NODE_ENV)
     if (localStorage.getItem('userID') !== null) {
       dispatch(setUserID(Number(localStorage.getItem('userID'))));
     } else {
@@ -75,12 +75,18 @@ function App() {
 
   return (
     <Router>
-      <Header>
+      <Header ref={headerRef}>
         <div className="title">
             <Link style={{textDecoration: 'none', color: 'brown'}}  to="/"
                   onClick={() => {
                     searchRef.current.style.display = 'flex';
                     searchRef.current.style.pointerEvents= 'auto';
+                    if(window.innerWidth > 800){
+                      headerRef.current.style.height = '70px';
+                    }
+                    else{
+                      headerRef.current.style.height = '100px';
+                    }
                   }}>
               <div style={{paddingLeft: '10px'}}>
                   <i style={{ marginRight: "5px"}} className="fas fa-film"></i>
@@ -91,6 +97,7 @@ function App() {
                   onClick={() => {
                     searchRef.current.style.display = 'none';
                     searchRef.current.style.pointerEvents= 'none';
+                    headerRef.current.style.height = 'auto';
                   }}>
               <i className="fas fa-star mobile"></i>
             </Link>
@@ -100,6 +107,7 @@ function App() {
               onClick={() => {
                 searchRef.current.style.display = 'none';
                 searchRef.current.style.pointerEvents= 'none';
+                headerRef.current.style.height = 'auto';
               }}>
           <i className="fas fa-star desktop"></i>
         </Link>

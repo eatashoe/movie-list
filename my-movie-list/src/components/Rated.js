@@ -5,13 +5,13 @@ import { updateAsyncRated, selectUserID, selectRated } from './searchSlice';
 import { postData } from './omdbAPI';
 
 const Bar = styled.div`
-    margin: 10px 30px 5px 30px;
+    margin: 10px 30px 5px 39px;
     font-size: 19px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     @media (min-width: 800px) {
-        margin: 10px 0px 5px 210px;
+        margin: -15px 30px 5px 39px;
     }
 `
 const VoteIcon = styled.i`
@@ -142,7 +142,7 @@ const Rated = () => {
     return(
         <div>
             <Bar>
-                <span>Movies You've Rated:</span>
+                <span style={{color: "brown"}}>Movies You've Rated:</span>
                 <div style={{display: 'flex', flexDirection: 'column'}}>
                     <VoteToggle type={"upvotes"} vote={toggle} style={{marginRight: "25px"}} className="fas fa-caret-up"
                                 onClick={() => setToggle(true)}></VoteToggle>

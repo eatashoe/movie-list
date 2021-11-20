@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux';
-import { createAction } from '@reduxjs/toolkit';
 import {
     selectSearchLoaded,
     setSearchLoaded,
@@ -13,9 +12,7 @@ import {
     updateAsyncPredictions,
     selectPredictions,
     clearPredictions,
-    updateAsyncResult,
-    updateAsyncRatings,
-    selectResult
+    updateAsyncResult
 } from './searchSlice';
 import useClickOut from './useClickOut';
 
@@ -84,7 +81,6 @@ const Search = (props) => {
     const searchLoaded = useSelector(selectSearchLoaded);
     const searchValue = useSelector(selectSearchValue);
     const predictions = useSelector(selectPredictions);
-    const results = useSelector(selectResult);
 
     const searchBarRef = React.useRef(null);
     const clearSearchRef = React.useRef(null);

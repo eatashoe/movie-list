@@ -1,0 +1,22 @@
+{
+  "name": "movie-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "frontend": "cd my-movie-list && npm start",
+    "api": "cd movie-list-backend && nodemon index.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run api\" \"npm run frontend\"",
+    "heroku-postbuild": "cd my-movie-list && npm install && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "got": "^11.8.3",
+    "morgan": "^1.10.0"
+  }
+}

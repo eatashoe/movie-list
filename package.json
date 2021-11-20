@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
     "frontend": "cd my-movie-list && npm start",
     "api": "cd movie-list-backend && nodemon index.js",
     "dev": "concurrently --kill-others-on-fail \"npm run api\" \"npm run frontend\"",
